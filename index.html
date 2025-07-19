@@ -1,10 +1,307 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lesson in Splats</title>
-  </head>
-  <body>
-    <h1>Welcome to Lesson in Splats</h1>
-    <p>This is a placeholder page.</p>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="A-Lesson-in-Splats.">
+  <meta name="keywords" content="A-Lesson-in-Splats">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A-Lesson-in-Splats</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S87YSBFKVG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-S87YSBFKVG');
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  <link rel="icon" href="./static/images/superhero-svgrepo-com (1).svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <!-- <a class="navbar-item" href="https://orlitany.github.io/">
+          <img src="./static/images/LITLAB - logo.png" class="" alt="Home" />LIT-Lab
+        </a>  -->
+
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">A Lesson in Splats: Teacher-Guided Diffusion for 3D Gaussian Splats
+              Generation with 2D Supervision </h1>
+            <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+             <a href="https://iccv.thecvf.com/"> <span class="tag is-large"
+                style="font-size: 1.1rem; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: 20px; background: linear-gradient(135deg, #3273dc 0%, #1e3a8a 100%); color: white; box-shadow: 0 2px 8px rgba(50, 115, 220, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <!-- <svg class="svg-inline--fa fa-award fa-w-12" style="margin-right: 0.5rem;" aria-hidden="true"
+                  focusable="false" data-prefix="fas" data-icon="award" role="img" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512" data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M97.12 362.63c-8.69-8.69-4.16-6.24-25.12-11.85-9.51-2.55-17.87-7.45-25.43-13.32L1.2 448.7c-4.39 10.77 3.81 22.47 15.43 22.03l52.69-2.01L105.56 507c8 8.44 22.04 5.81 26.43-4.96l52.05-127.62c-10.84 6.04-22.87 9.58-35.31 9.58-19.5 0-37.82-7.59-51.61-21.37zM382.8 448.7l-45.37-111.24c-7.56 5.88-15.92 10.77-25.43 13.32-21.07 5.64-16.45 3.18-25.12 11.85-13.79 13.78-32.12 21.37-51.62 21.37-12.44 0-24.47-3.55-35.31-9.58L252 502.04c4.39 10.77 18.44 13.4 26.43 4.96l36.25-38.28 52.69 2.01c11.62.44 19.82-11.27 15.43-22.03zM263 340c15.28-15.55 17.03-14.21 38.79-20.14 13.89-3.79 24.75-14.84 28.47-28.98 7.48-28.4 5.54-24.97 25.95-45.75 10.17-10.35 14.14-25.44 10.42-39.58-7.47-28.38-7.48-24.42 0-52.83 3.72-14.14-.25-29.23-10.42-39.58-20.41-20.78-18.47-17.36-25.95-45.75-3.72-14.14-14.58-25.19-28.47-28.98-27.88-7.61-24.52-5.62-44.95-26.41-10.17-10.35-25-14.4-38.89-10.61-27.87 7.6-23.98 7.61-51.9 0-13.89-3.79-28.72.25-38.89 10.61-20.41 20.78-17.05 18.8-44.94 26.41-13.89 3.79-24.75 14.84-28.47 28.98-7.47 28.39-5.54 24.97-25.95 45.75-10.17 10.35-14.15 25.44-10.42 39.58 7.47 28.36 7.48 24.4 0 52.82-3.72 14.14.25 29.23 10.42 39.59 20.41 20.78 18.47 17.35 25.95 45.75 3.72 14.14 14.58 25.19 28.47 28.98C104.6 325.96 106.27 325 121 340c13.23 13.47 33.84 15.88 49.74 5.82a39.676 39.676 0 0 1 42.53 0c15.89 10.06 36.5 7.65 49.73-5.82zM97.66 175.96c0-53.03 42.24-96.02 94.34-96.02s94.34 42.99 94.34 96.02-42.24 96.02-94.34 96.02-94.34-42.99-94.34-96.02z">
+                  </path>
+                </svg> -->
+               ICCV 2025
+              </span></a>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://pengchensheng.com/">Chensheng Peng</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="">Ido Sobol</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="">Masayoshi Tomizuka</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="">Kurt Keutzer</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://chenfengx.com/">Chenfeng Xu </a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://orlitany.github.io/">Or Litany </a><sup>2,3</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UC Berkeley,</span>
+              <span class="author-block"><sup>2</sup>Technion,</span>
+              <span class="author-block"><sup>3</sup>NVIDIA</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2412.00623" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming soon)</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/teaser.png" class="interpolation-image" alt="Interpolate start reference image." />
+        <h2 class="subtitle has-text-centered">
+          <b>TL;DR:</b>
+          Leveraging imperfect predictions of a feedforward 3D
+          reconstruction teacher model, our method offers a fully image-based 3D diffusion training scheme.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/controlnet_final.png" class="interpolation-image"
+        alt="Interpolate start reference image." />
+      <h2 class="subtitle has-text-centered">
+        Our method, focused on single-image novel view synthesis, not only outperforms strong baselines but also proves
+        to be highly applicable to other tasks, including multi-view generation, and pose- and segmentation-conditioned
+        text-to-image synthesis.
+      </h2>
+    </div>
+  </div>
+  </section> -->
+
+
+  <section class="section"></section>
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a novel framework for training 3D image-conditioned diffusion models using only 2D supervision.
+            Recovering 3D structure from 2D images is inherently ill-posed due to the ambiguity of possible
+            reconstructions, making generative models a natural choice. However, most existing 3D generative models rely
+            on full 3D supervision, which is impractical due to the scarcity of large-scale 3D datasets. To address
+            this, we propose leveraging sparse-view supervision as a scalable alternative. While recent reconstruction
+            models use sparse-view supervision with differentiable rendering to lift 2D images to 3D, they are
+            predominantly deterministic, failing to capture the diverse set of plausible solutions and producing blurry
+            predictions in uncertain regions. A key challenge in training 3D diffusion models with 2D supervision is
+            that the standard training paradigm requires both the denoising process and supervision to be in the same
+            modality. We address this by decoupling the noisy samples being denoised from the supervision signal,
+            allowing the former to remain in 3D while the latter is provided in 2D. Our approach leverages suboptimal
+            predictions from a deterministic image-to-3D model—acting as a "teacher"—to generate noisy 3D inputs,
+            enabling effective 3D diffusion training without requiring full 3D ground truth. We validate our framework
+            on both object-level and scene-level datasets, using two different 3D Gaussian Splat (3DGS) teachers. Our
+            results show that our approach consistently improves upon these deterministic teachers, demonstrating its
+            effectiveness in scalable and high-fidelity 3D generative modeling.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+    <section class="section"></section>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h1 class="title is-3">Pipeline</h1>
+      </div>
+      <p>
+        Using a pre-trained deterministic predictor network for 3DGS, which we refer to as the ''noisy teacher'' (left),
+        in stage 1 (top) we lift sampled views to generate an imperfect 3DGS prediction, providing noisy samples and
+        supervision for the diffusion denoiser in 3DGS with additional image supervision. In stage 2 (bottom), we
+        decouple the noisy samples from supervision and instead use the noisy teacher to generate noisy samples at noise
+        levels \( t > t^* \), with a multi-step denoising strategy generating high-quality predictions to facilitate
+        image-only supervision. Both stages incorporate cycle consistency regularization.
+      </p>
+      <br>
+      <!-- <p>Which Attention Maps Should we Denoise? (Spoiler: Self-Attention).</p>
+      <p>The single embedding condition in the cross-attention of Zero-1-to-3 results in a single key-value pair.
+        Consequently, the Softmax degenerates the scores to an all-ones matrix, losing spatial awareness.</p> -->
+
+      <div class="hero-body">
+        <img src="./static/images/method_short_no_sections.png" class="interpolation-image"
+          alt="Interpolate start reference image." />
+
+
+      </div>
+    </div>
+
+
+
+
+
+    <section class="hero teaser"></section>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h3 class="title is-4">Denoising in 3D space with 2D supervision</h3>
+      </div>
+      <!-- <p>Robustifying attention maps can reduce generation artifacts. Inspired by gradient aggregation and weight
+        averaging in SGD, we view the denoising as an unrolled optimization, with attention maps as parameters in a
+        score prediction model.</p> -->
+
+
+      <div class="hero-body">
+        <img src="./static/images/supp_teaser.png" class="interpolation-image"
+          alt="Interpolate start reference image." />
+      </div>
+    </div>
+    </section>
+
+    <section class="section"></section>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h1 class="title is-3">Experiments</h1>
+      </div>
+      <p>
+        We validate our framework on both object-level and scene-level datasets, using two different 3D Gaussian Splat
+        (3DGS) teachers. Our results show that our approach consistently improves upon these deterministic teachers,
+        demonstrating its effectiveness in scalable and high-fidelity 3D generative modeling.
+      </p>
+      <br>
+      <!-- <p>Which Attention Maps Should we Denoise? (Spoiler: Self-Attention).</p>
+      <p>The single embedding condition in the cross-attention of Zero-1-to-3 results in a single key-value pair.
+        Consequently, the Softmax degenerates the scores to an all-ones matrix, losing spatial awareness.</p> -->
+
+      <div class="hero-body">
+        <img src="./static/images/qual2_with_input.png" class="interpolation-image"
+          alt="Interpolate start reference image." />
+
+
+      </div>
+    </div>
+
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{peng2023delflow,
+  title={A Lesson in Splats: Teacher-Guided Diffusion for 3D Gaussian Splats Generation with 2D Supervision},
+  author={Peng, Chensheng and Sobol, Ido and Tomizuka, Masayoshi and Keutzer, Kurt and Xu, Chenfeng and Litany, Or},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+        </code></pre>
+      </div>
+    </section>
+
+
+
+    <footer class="footer">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content has-text-centered">
+
+              <p>
+                Website source based on <a href="https://github.com/nerfies/nerfies.github.io">this source code</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+
 </html>
